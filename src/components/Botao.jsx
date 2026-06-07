@@ -1,10 +1,12 @@
 function Botao(props) {
     return (
-        <button {...props}
-                className="bg-blue-800 rounded p-2 text-white">
+        <button
+            className={props.className}
+            onClick={props.onClick}
+        >
             {props.children}
         </button>
-    )
+    );
 }
 
 export default Botao;
