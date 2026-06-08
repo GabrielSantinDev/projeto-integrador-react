@@ -5,7 +5,7 @@ const cursoService = {
         const response = await api.get("/cursos")
         return response.data
     },
-    cadastrar: async (curso) => {
+    criar: async (curso) => {
         const response = await api.post("/cursos", curso)
         return response.data
     },

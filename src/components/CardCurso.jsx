@@ -9,8 +9,13 @@ import { IoTimeOutline } from "react-icons/io5";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import Botao from "./Botao.jsx";
 import cursoService from "../services/cursoService.js";
+import alertas from "../util/Alertas.jsx";
+import {useState} from "react";
+import EditarCurso from "./EditarCurso.jsx";
 
 function CardCurso({ curso, atualizarCursos, setCursos}) {
+
+    const [open, setOpen] = useState(false);
 
     async function publicarCurso() {
 
@@ -19,7 +24,7 @@ function CardCurso({ curso, atualizarCursos, setCursos}) {
             publicado: !curso.publicado,
         };
 
-        // 1. Atualiza UI imediatamente
+        // Atualiza UI imediatamente
         setCursos(prev =>
             prev.map(c =>
                 c.codigo === curso.codigo
@@ -28,13 +33,18 @@ function CardCurso({ curso, atualizarCursos, setCursos}) {
             )
         );
 
+        alertas.mensagemIcon(
+            cursoAtualizado.publicado ? FaEye : FaEyeSlash,
+            cursoAtualizado.publicado ? 'Curso publicado' : 'Curso privado'
+        );
+
         try {
             await cursoService.atualizar(curso.codigo, cursoAtualizado);
             //await atualizarCursos();
         } catch (error) {
             console.log(error);
 
-            // 3. Reverte em caso de erro
+            // Reverte em caso de erro
             setCursos(prev =>
                 prev.map(c =>
                     c.codigo === curso.codigo
@@ -42,6 +52,20 @@ function CardCurso({ curso, atualizarCursos, setCursos}) {
                         : c
                 )
             );
+        }
+    }
+
+    async function removerCurso() {
+        alertas.loading('Removendo curso...');
+
+        try {
+            await cursoService.remover(curso.codigo);
+            alertas.sucesso('Curso removido com sucesso!');
+            atualizarCursos();
+        } catch (error) {
+            console.log(error);
+
+            alertas.erro('Ocorreu um erro ao remover o curso!');
         }
     }
 
@@ -102,15 +126,27 @@ function CardCurso({ curso, atualizarCursos, setCursos}) {
                             {curso.publicado ? "Despublicar" : "Publicar"}
                         </Botao>
 
-                        <Botao className="btn btn-ghost hover:bg-success/80 rounded-full">
+                        <Botao
+                            className="btn btn-ghost hover:bg-success/80 rounded-full"
+                            onClick={() => setOpen(true)}
+                        >
                             <FaPen />
                             Editar
                         </Botao>
 
-                        <Botao className="btn btn-ghost text-error hover:bg-error hover:text-base-content rounded-full">
+                        <Botao className="btn btn-ghost text-error hover:bg-error hover:text-base-content rounded-full"
+                               onClick={() => removerCurso(curso)}
+                        >
                             <FaTrash />
                             Remover
                         </Botao>
+
+                        <EditarCurso
+                            open={open}
+                            atualizarCursos={atualizarCursos}
+                            curso={curso}
+                            onClose={() => setOpen(false)}
+                        />
 
                     </div>
 

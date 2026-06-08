@@ -3,15 +3,20 @@ import PageTemplate from "../components/PageTemplate.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Botao from "../components/Botao.jsx";
 import CardCurso from "../components/CardCurso.jsx";
-import {useEffect, useState} from "react";
-import cursoService from "../services/cursoService.js";
+import {useEffect, useRef, useState} from "react";
 import CardSemCursos from "../components/CardSemCursos.jsx";
+import CursoModal from "../components/CriarCurso.jsx";
 import { FaPlus } from "react-icons/fa";
+import cursoService from "../services/cursoService.js";
+import alertas from "../util/Alertas.jsx";
+import CriarCurso from "../components/CriarCurso.jsx";
 
 function PageHome() {
 
     const [cursos, setCursos] = useState([]);
     const [cursosFiltro, setCursosFiltro] = useState([]);
+    const [open, setOpen] = useState(false);
+    const carregou = useRef(false);
 
     async function carregarCursos() {
         try {
@@ -25,13 +30,20 @@ function PageHome() {
             setCursosFiltro(ordenados);
         } catch (e) {
             console.log(e);
-            alert("Erro ao carregar cursos.");
+
+            alertas.erro('Erro ao carregar cursos!');
+
         }
     }
 
     useEffect(() => {
+        if (carregou.current) return;
+
+        carregou.current = true;
+
         carregarCursos();
     }, []);
+
 
     return (
         <PageTemplate>
@@ -57,13 +69,20 @@ function PageHome() {
 
                         {/* DIREITA */}
                         <div className="flex justify-end">
-                            <Botao className="btn btn-primary rounded-lg font-bold">
+                            <Botao className="btn btn-primary rounded-lg font-bold"
+                                   onClick={() => setOpen(true)}>
                                 <FaPlus size={14} />
                                 Novo Curso
                             </Botao>
                         </div>
 
                     </div>
+
+                    <CriarCurso
+                        open={open}
+                        atualizarCursos={carregarCursos}
+                        onClose={() => setOpen(false)}
+                    />
 
 
                 {cursos.length === 0 && (
