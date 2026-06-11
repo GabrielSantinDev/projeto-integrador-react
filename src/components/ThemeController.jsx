@@ -5,6 +5,7 @@ import { FiMoon } from "react-icons/fi";
 function ThemeController() {
     return (
         <label className="swap swap-rotate btn btn-ghost btn-circle">
+
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" className="theme-controller" value="light" />
 

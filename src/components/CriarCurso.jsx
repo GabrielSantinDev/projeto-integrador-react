@@ -5,6 +5,7 @@ import InputNumero from "./InputNumero.jsx";
 import {useState} from "react";
 import cursoService from "../services/cursoService.js";
 import alertas from "../util/Alertas.jsx";
+import { useSelector } from "react-redux";
 
 export default function CriarCurso({ open, onClose , atualizarCursos}) {
 
@@ -15,6 +16,8 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
     const [preco, setPreco] = useState("");
     const [cargaHoraria, setCargaHoraria] = useState("");
     const [categoria, setCategoria] = useState("");
+
+    const usuario = useSelector(state => state.auth.usuarioLogado);
 
 
     function validarFormulario() {
@@ -52,7 +55,7 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
         if (!valido) return;
 
         const curso = {
-            instrutorCodigo: 1,
+            instrutorCodigo: usuario.id,
 
             titulo,
             categoria,
@@ -117,10 +120,8 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
                     </Botao>
                 </div>
 
-                {/* Body */}
                 <div className="px-6 py-5 space-y-5">
 
-                    {/* Título */}
                     <div>
                         <label className="block text-sm font-medium text-base-content mb-2">
                             Título *
@@ -133,7 +134,6 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
                         />
                     </div>
 
-                    {/* Descrição */}
                     <div>
                         <label className="block text-sm font-medium text-base-content mb-2">
                             Descrição *
@@ -148,7 +148,6 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
 
                     </div>
 
-                    {/* Grid */}
                     <div className="grid grid-cols-2 gap-4">
 
                         <div>
@@ -177,7 +176,6 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
 
                     </div>
 
-                    {/* Categoria */}
                     <div>
                         <label className="block text-sm font-medium text-base-content mb-2">
                             Categoria *
@@ -192,7 +190,6 @@ export default function CriarCurso({ open, onClose , atualizarCursos}) {
 
                 </div>
 
-                {/* Footer */}
                 <div className="flex justify-end gap-3 px-6 pb-6">
 
                     <Botao

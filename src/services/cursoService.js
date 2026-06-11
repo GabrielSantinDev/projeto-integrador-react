@@ -20,6 +20,21 @@ const cursoService = {
     remover: async (id) => {
         const response = await api.delete(`/cursos/${id}`)
         return response.data
+    },
+    listarPorInstrutor: async (instrutorId) => {
+        const response = await api.get(`/cursos/instrutor/${instrutorId}`);
+        return response.data;
+    },
+    atualizarImagem: async (codigo, file) => {
+        const formData = new FormData();
+        formData.append("imagem", file);
+
+        const response = await api.put(
+            `/cursos/${codigo}/imagem`,
+            formData
+        );
+
+        return response.data;
     }
 }
 

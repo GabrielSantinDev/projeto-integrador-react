@@ -3,8 +3,23 @@ import { HiAcademicCap } from "react-icons/hi2";
 import ThemeController from "./ThemeController.jsx";
 import Botao from "./Botao.jsx";
 import ThemeColorPicker from "./ThemeColorPicker.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {logout} from "../store.js";
+import CardSemCursosAluno from "./CardSemCursosAluno.jsx";
 
 export default function Navbar() {
+
+    const usuario = useSelector(state => state.auth.usuarioLogado);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const fazerLogout = () => {
+        dispatch(logout());
+        navigate("/login");
+    };
+
     return (
         <header className="sticky top-0 z-50 border-b border-primary bg-base-100">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -26,8 +41,18 @@ export default function Navbar() {
                     {/* Menu */}
                     <nav className="flex items-center gap-4">
 
-                        <Botao className="btn btn-soft btn-primary rounded-lg text-shadow-none text-primary hover:text-base-content">Meus Cursos</Botao>
+                        <Botao className="btn btn-soft btn-primary rounded-lg text-shadow-none text-primary hover:text-base-content"
+                               onClick={() => navigate("/home-aluno")}
+                        >Meus Cursos</Botao>
+
+                        {usuario.role === "ALUNO" && (
+                            <Botao className="btn btn-soft btn-primary rounded-lg text-shadow-none text-primary hover:text-base-content"
+                            onClick={() => navigate("/catalogo")}
+                            >Catálogo</Botao>
+                        )}
+
                     </nav>
+
                 </div>
 
                 {/* USER AREA */}
@@ -39,10 +64,10 @@ export default function Navbar() {
 
                         <div className="leading-tight">
                             <p className="text-sm font-semibold">
-                                Usuario
+                                {usuario.nome}
                             </p>
                             <p className="text-xs">
-                                Instrutor
+                                {usuario.role}
                             </p>
                         </div>
                     </div>
@@ -51,7 +76,8 @@ export default function Navbar() {
                     <ThemeController></ThemeController>
 
                     {/* Logout */}
-                    <Botao className="flex items-center gap-2 hover:text-red-500 transition btn btn-ghost rounded-full">
+                    <Botao className="flex items-center gap-2 hover:text-red-500 transition btn btn-ghost rounded-full"
+                        onClick={fazerLogout}>
                         <FaSignOutAlt />
                         Sair
                     </Botao>
