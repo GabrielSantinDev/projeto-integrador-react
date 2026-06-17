@@ -1,10 +1,10 @@
-import Botao from "./Botao.jsx";
-import InputTexto from "./InputTexto.jsx";
-import InputTextArea from "./InputTextArea.jsx";
-import InputNumero from "./InputNumero.jsx";
+import Botao from "../Botao.jsx";
+import InputTexto from "../InputTexto.jsx";
+import InputTextArea from "../InputTextArea.jsx";
+import InputNumero from "../InputNumero.jsx";
 import {useEffect, useState} from "react";
-import cursoService from "../services/cursoService.js";
-import alertas from "../util/Alertas.jsx";
+import cursoService from "../../services/cursoService.js";
+import alertas from "../../util/Alertas.jsx";
 
 export default function EditarCurso({ open, onClose , atualizarCursos, curso}) {
 

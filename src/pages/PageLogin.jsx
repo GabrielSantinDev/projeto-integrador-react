@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 import { HiArrowRightOnRectangle } from "react-icons/hi2";
 import AuthCard from "../components/AuthCard";
@@ -57,6 +57,10 @@ function PageLogin() {
         }
     };
 
+    useEffect(() => {
+        document.title = "Login";
+    }, []);
+
     return (
         <AuthCard>
             <h1 className="text-2xl font-bold text-base-content mb-1">
@@ -67,13 +71,6 @@ function PageLogin() {
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                {/* Tipo de conta */}
-                <div>
-                    <label className="block text-sm font-medium text-base-content mb-2">
-                        Entrar como
-                    </label>
-                    <TipoContaSeletor value={tipo} onChange={setTipo} />
-                </div>
 
                 {/* Email / username */}
                 <div>

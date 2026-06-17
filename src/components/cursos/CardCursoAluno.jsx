@@ -1,12 +1,7 @@
 import { HiBookOpen, HiClock, HiCheckCircle } from "react-icons/hi2";
 import ImagemCoverCurso from "./ImagemCoverCurso.jsx";
 
-/**
- * CardCursoAluno
- * Props:
- *  - matricula: { curso: { titulo, categoria, horasDuracao, preco, instrutor: { nome } },
- *                 porcentagemProgresso, concluido }
- */
+
 function CardCursoAluno({ matricula }) {
     const { curso, porcentagemProgresso = 0, concluido = false } = matricula;
     const progresso = Math.round(porcentagemProgresso);

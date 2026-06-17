@@ -1,12 +1,55 @@
-import { HiBookOpen, HiClock } from "react-icons/hi2";
+import { HiClock } from "react-icons/hi2";
 import ImagemCoverCurso from "./ImagemCoverCurso.jsx";
+import {useState} from "react";
+import alertas from "../../util/Alertas.jsx";
+import matriculaService from "../../services/matriculaService.js";
 
-/**
- * CardCursoCatalogo
- * Props:
- *  - curso: { titulo, categoria, horasDuracao, preco, instrutor: { nome } }
- */
-function CardCursoCatalogo({ curso }) {
+function CardCursoCatalogo({ curso , usuario, carregarCursos, carregarMatriculas }) {
+
+    const [loading, setLoading] = useState(false);
+
+    async function handleMatricula() {
+        if (loading) return;
+
+        if (!usuario?.id) {
+            alertas.erro("Usuário não encontrado");
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const matriculas = await matriculaService.listarPorAluno(usuario.id);
+
+            const jaMatriculado = matriculas.some(
+                m => m.curso.codigo === curso.codigo
+            );
+
+            if (jaMatriculado) {
+                alertas.erro("Você já está matriculado neste curso");
+                return;
+            }
+
+            await matriculaService.matricular({
+                alunoCodigo: usuario.id,
+                cursoCodigo: curso.codigo,
+                porcentagemProgresso: 0,
+                concluido: false,
+                dataMatricula: new Date()
+            });
+
+            alertas.sucesso("Inscrição realizada!");
+            carregarCursos();
+            carregarMatriculas();
+
+        } catch (err) {
+            console.log(err);
+            alertas.erro("Erro ao se inscrever");
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <div className="bg-base-100 rounded-2xl shadow-sm border border-base-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-200">
 
@@ -49,8 +92,14 @@ function CardCursoCatalogo({ curso }) {
                         })}
                     </p>
 
-                    <button className="btn btn-primary btn-sm">
-                        Inscrever-se
+                    <button
+                        className="btn btn-primary btn-sm"
+                        onClick={handleMatricula}
+                        disabled={loading}
+                    >
+                        {loading ?
+                            <span className="loading loading-spinner loading-sm bg-primary text-white" />
+                            : "Inscrever-se"}
                     </button>
                 </div>
             </div>

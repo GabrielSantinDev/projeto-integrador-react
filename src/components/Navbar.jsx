@@ -2,11 +2,9 @@ import { FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 import { HiAcademicCap } from "react-icons/hi2";
 import ThemeController from "./ThemeController.jsx";
 import Botao from "./Botao.jsx";
-import ThemeColorPicker from "./ThemeColorPicker.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {logout} from "../store.js";
-import CardSemCursosAluno from "./CardSemCursosAluno.jsx";
 
 export default function Navbar() {
 
@@ -24,7 +22,8 @@ export default function Navbar() {
         <header className="sticky top-0 z-50 border-b border-primary bg-base-100">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
-                {/* LOGO + MENU */}
+                {/* LOGO + MENU*/}
+
                 <div className="flex items-center gap-10">
 
                     {/* Logo */}
@@ -72,7 +71,6 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <ThemeColorPicker></ThemeColorPicker>
                     <ThemeController></ThemeController>
 
                     {/* Logout */}

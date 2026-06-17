@@ -1,10 +1,10 @@
-import Botao from "./Botao.jsx";
-import InputTexto from "./InputTexto.jsx";
-import InputTextArea from "./InputTextArea.jsx";
-import InputNumero from "./InputNumero.jsx";
+import Botao from "../Botao.jsx";
+import InputTexto from "../InputTexto.jsx";
+import InputTextArea from "../InputTextArea.jsx";
+import InputNumero from "../InputNumero.jsx";
 import {useState} from "react";
-import cursoService from "../services/cursoService.js";
-import alertas from "../util/Alertas.jsx";
+import cursoService from "../../services/cursoService.js";
+import alertas from "../../util/Alertas.jsx";
 import { useSelector } from "react-redux";
 
 export default function CriarCurso({ open, onClose , atualizarCursos}) {

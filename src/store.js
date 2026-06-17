@@ -33,11 +33,56 @@ const authSlice = createSlice({
     },
 });
 
+const cursosSlice = createSlice({
+    name: "cursos",
+    initialState: {
+        lista: [],
+        carregando: false,
+    },
+    reducers: {
+
+        setCursos: (state, action) => {
+            state.lista = action.payload;
+        },
+        clearCursos: (state) => {
+            state.lista = [];
+        },
+        setCarregando: (state, action) => {
+            state.carregando = action.payload;
+        }
+    }
+});
+
+const matriculasSlice = createSlice({
+    name: "matriculas",
+    initialState: {
+        lista: [],
+        carregando: false,
+    },
+    reducers: {
+        setMatriculas: (state, action) => {
+            state.lista = action.payload;
+        },
+
+        clearMatriculas: (state) => {
+            state.lista = [];
+        },
+        setCarregandoMatriculas: (state, action) => {
+            state.carregando = action.payload;
+        }
+    }
+});
+
+
 const store = configureStore({
     reducer: {
         auth: authSlice.reducer,
+        cursos: cursosSlice.reducer,
+        matriculas: matriculasSlice.reducer,
     },
 });
 
 export const { login, logout } = authSlice.actions;
+export const { setCursos, clearCursos, setCarregando} = cursosSlice.actions;
+export const { setMatriculas, clearMatriculas, setCarregandoMatriculas} = matriculasSlice.actions;
 export default store;

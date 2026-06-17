@@ -6,13 +6,13 @@ import {
 } from "react-icons/fa";
 
 import { IoTimeOutline } from "react-icons/io5";
-import Botao from "./Botao.jsx";
-import cursoService from "../services/cursoService.js";
-import alertas from "../util/Alertas.jsx";
+import Botao from "../Botao.jsx";
+import cursoService from "../../services/cursoService.js";
+import alertas from "../../util/Alertas.jsx";
 import {useRef, useState} from "react";
 import EditarCurso from "./EditarCurso.jsx";
 import ImagemCoverCurso from "./ImagemCoverCurso.jsx";
-import {useConfirm} from "./ConfirmModal.jsx";
+import {useConfirm} from "../ConfirmModal.jsx";
 
 function CardCurso({ curso, atualizarCursos, setCursos}) {
 

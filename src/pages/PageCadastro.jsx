@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { useForm, Controller } from "react-hook-form";
 import { HiUserPlus } from "react-icons/hi2";
 import AuthCard from "../components/AuthCard";
@@ -65,6 +65,10 @@ function PageCadastro() {
             }
         }
     };
+
+    useEffect(() => {
+        document.title = "Cadastro";
+    }, []);
 
     return (
         <AuthCard>

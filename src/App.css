@@ -8,17 +8,15 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
+  color-scheme: light;
   --color-primary: var(--primary-color);
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
-  default: false;
-  prefersdark: true;
+  color-scheme: dark;
   --color-primary: var(--primary-color);
 }
-
-
 
 /* Tirando o estilo padrão de input dos navegadores */
 /* Chrome, Safari, Edge, Opera */
