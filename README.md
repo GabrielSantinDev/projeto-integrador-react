@@ -78,23 +78,6 @@ src/
 ├── assets/                 # Imagens e arquivos estáticos
 │
 ├── components/             # Componentes reutilizáveis
-│   ├── AuthCard.jsx        # Container das páginas de autenticação
-│   ├── Botao.jsx
-│   ├── CardCurso.jsx       # Card de curso (visão instrutor)
-│   ├── CardCursoAluno.jsx  # Card de curso com progresso (visão aluno)
-│   ├── CardSemCursos.jsx
-│   ├── CriarCurso.jsx      # Modal de criação de curso
-│   ├── EditarCurso.jsx     # Modal de edição de curso
-│   ├── InputTexto.jsx
-│   ├── InputNumero.jsx
-│   ├── InputTextArea.jsx
-│   ├── Label.jsx
-│   ├── Navbar.jsx
-│   ├── PageTemplate.jsx    # Layout base das páginas internas
-│   ├── ThemeController.jsx # Alternador de tema claro/escuro
-│   ├── TipoContaSeletor.jsx
-│   └── Titulo.jsx
-│
 ├── pages/                  # Páginas da aplicação
 │   ├── Page404.jsx
 │   ├── PageCadastro.jsx
@@ -240,8 +223,8 @@ Se a API estiver em outro endereço, altere o `baseURL` nesse arquivo.
 | Repositório | Descrição | Tecnologia |
 |---|---|---|
 | [ProjetoIntegrador](https://github.com/GabrielSantinDev/ProjetoIntegrador) | API REST consumida por este front-end | Java + Spring Boot |
-| [projeto-integrador-react](https://github.com/GabrielSantinDev/projeto-integrador-react) | **Este repositório** — Frontend | React + Vite |
-| [ProjetoIntegradorWeb](https://github.com/GabrielSantinDev/ProjetoIntegradorWeb) | Versão web alternativa | PHP |
+| [projeto-integrador-react](https://github.com/GabrielSantinDev/projeto-integrador-react) | **Este repositório** — Frontend | React + TailwindCSS |
+| [ProjetoIntegradorWeb](https://github.com/GabrielSantinDev/ProjetoIntegradorWeb) | Versão web alternativa | PHP + Bootstrap |
 
 ---
 
