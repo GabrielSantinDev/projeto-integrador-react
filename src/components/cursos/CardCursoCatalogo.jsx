@@ -39,8 +39,14 @@ function CardCursoCatalogo({ curso , usuario, carregarCursos, carregarMatriculas
             });
 
             alertas.sucesso("Inscrição realizada!");
-            carregarCursos();
-            carregarMatriculas();
+
+            if (carregarCursos) {
+                await carregarCursos();
+            }
+
+            if (carregarMatriculas) {
+                await carregarMatriculas();
+            }
 
         } catch (err) {
             console.log(err);
