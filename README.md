@@ -30,6 +30,8 @@ A autenticação é feita via **JWT** — o token recebido do back-end é armaze
 
 A interface suporta **tema claro e escuro** persistido entre sessões, com estilização via **Tailwind CSS v4 + DaisyUI**.
 
+Vídeo de demonstração: **https://drive.google.com/file/d/1stQfz3xotUg2ilquvHLbQZJLBz6IexrO/view?usp=sharing**
+
 ---
 
 ## 🎯 Funcionalidades
