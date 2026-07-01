@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { HiUserPlus } from "react-icons/hi2";
-import AuthCard from "../components/AuthCard";
+import AuthCard from "../components/Authcard";
 import TipoContaSeletor from "../components/TipoContaSeletor";
 import InputTexto from "../components/InputTexto";
 import Botao from "../components/Botao";

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { FiMoon } from "react-icons/fi";
 

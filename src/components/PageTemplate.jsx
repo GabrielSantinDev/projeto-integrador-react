@@ -1,7 +1,4 @@
 
-import Titulo from "./Titulo.jsx";
-
-
 function PageTemplate(props) {
     return (
         <div className={props.className}>

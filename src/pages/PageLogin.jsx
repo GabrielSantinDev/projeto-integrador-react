@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 import { HiArrowRightOnRectangle } from "react-icons/hi2";
-import AuthCard from "../components/AuthCard";
-import TipoContaSeletor from "../components/TipoContaSeletor";
+import AuthCard from "../components/Authcard";
 import InputTexto from "../components/InputTexto";
 import Botao from "../components/Botao";
 import authService from "../services/authService.js";
@@ -13,13 +12,11 @@ import {useNavigate} from "react-router-dom";
 function PageLogin() {
     const dispatch  = useDispatch();
     const navigate  = useNavigate();
-    const [tipo, setTipo] = useState("aluno");
     const [erroServidor, setErroServidor] = useState("");
 
     const {
         register,
         handleSubmit,
-        setValue,
         formState: { errors, isSubmitting },
     } = useForm({ defaultValues: { username: "", senha: "" } });
 

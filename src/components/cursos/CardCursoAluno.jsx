@@ -1,4 +1,4 @@
-import { HiBookOpen, HiClock, HiCheckCircle } from "react-icons/hi2";
+import { HiClock, HiCheckCircle } from "react-icons/hi2";
 import ImagemCoverCurso from "./ImagemCoverCurso.jsx";
 
 
