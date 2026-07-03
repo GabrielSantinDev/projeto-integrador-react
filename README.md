@@ -22,9 +22,10 @@
 
 <div align="center">
 
+> 🔗 [Acesse a API antes de entrar na aplicação](https://projetointegrador-ce3g.onrender.com/) 
 ### 🔗 [Ver aplicação online](https://skill-up-do98.onrender.com/)
 
-> ⚠️ Hospedado no plano gratuito do Render - o primeiro acesso pode levar de 30 a 60 segundos para carregar.
+> ⚠️ Hospedado no plano gratuito do Render - o primeiro acesso de ambos os links podem levar de 30 a 60 segundos para carregar.
 
 </div>
 
