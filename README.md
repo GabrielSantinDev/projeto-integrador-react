@@ -20,15 +20,6 @@
 
 </div>
 
-<div align="center">
-
-> 🔗 [Acesse a API antes de entrar na aplicação](https://projetointegrador-ce3g.onrender.com/) 
-### 🔗 [Ver aplicação online](https://skill-up-do98.onrender.com/)
-
-> ⚠️ Hospedado no plano gratuito do Render - o primeiro acesso de ambos os links podem levar de 30 a 60 segundos para carregar.
-
-</div>
-
 ---
 
 ## 📖 Sobre o Projeto
@@ -41,9 +32,14 @@ A interface suporta **tema claro e escuro** persistido entre sessões, com estil
 
 ---
 
-## 🎥 Vídeo de Demonstração
+## 🎥 Demonstração
 
 - 📽️ [Apresentação geral](https://drive.google.com/file/d/1stQfz3xotUg2ilquvHLbQZJLBz6IexrO/view?usp=sharing)
+
+> 🔗 [Acesse a API antes de entrar na aplicação](https://projetointegrador-ce3g.onrender.com/) <br>
+> 🔗 [Ver aplicação online](https://skill-up-do98.onrender.com/) <br>
+
+> ⚠️ Hospedado no plano gratuito do Render - o primeiro acesso de ambos os links podem levar de 30 a 60 segundos para carregar.
 
 ---
 
